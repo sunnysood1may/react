@@ -1,22 +1,20 @@
-import logo from "./logo.svg";
 import "./App.css";
 import React, {  useRef } from "react";
 import "./style.css";
+import User from "./User";
 
-function App() {
-    let inputRef = useRef(null);
-    function handleInput(){
-      console.log("function call");
-      inputRef.current.value=1000;
-      inputRef.current.style.color = "yellow";
-      inputRef.current.focus();
-      inputRef.current.style.display = "none";
-    }
+function App() { 
+   let inputRef = useRef(null);
+   function updateInput(){
+    inputRef.current.value = 1000;
+    inputRef.current.style.color = "red";
+    inputRef.current.focus();
+   }
     return (
       <div className="App">
-        <h1>useRef in React </h1>
-        <input type="text" ref={inputRef} />
-        <button onClick={handleInput}>Handle Input</button>
+        <h1>forwardRef in React </h1>
+        <User ref={inputRef} />
+        <button onClick={updateInput}>Update InputBox</button>
       </div>
     );
 }
