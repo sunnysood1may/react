@@ -1,6 +1,7 @@
 import logo from "./logo.svg";
 import "./App.css";
-import React, { useEffect, useState, Fragment, useMemo } from "react";
+import React, { useEffect, useState, Fragment, 
+  useMemo, createRef } from "react";
 import User from "./User";
 import Student from "./Student";
 import "./style.css";
@@ -9,23 +10,29 @@ import { Button, Alert, Table } from "react-bootstrap";
 import Cols from "./Col";
 import Counter from "./Counter";
 
-function App() {
-  const [count, setCount] = useState(0);
-  const [item, setItem] = useState(10);
-  const newApple=React.useMemo(
-    function appleTime(){
-      return count*5;
-    },[count]
-  )
+class App extends React.Component {
+  constructor(){
+    super();
+    this.inputRef=createRef();
+  }
+  componentDidMount(){
+    //console.log(this.inputRef.current.value="1000");
+  }
+  getVal(){
+    console.log(this.inputRef.current.value);
+    this.inputRef.current.style.color = "red";
+    this.inputRef.current.style.backgroundColor = "yellow";
+  }
+  render (){
+    return (
+      <div className="App">
+        <h1>Ref in React </h1>
+        <input type="text" ref={this.inputRef} /><br />
+        <Button onClick={()=>this.getVal()}>Check Ref</Button>
+      </div>
+    );
+  }
   
-  return (
-    <div className="App">
-      <h1>Hooks in React {count}</h1>
-      <h1>{newApple}</h1>
-      <button onClick={() => setCount(count + 1)}>Update Count</button>
-      <button onClick={() => setItem(item * 10)}>Update Item</button>
-    </div>
-  );
 }
 
 export default App;
