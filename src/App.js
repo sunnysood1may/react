@@ -7,18 +7,24 @@ import "./style.css";
 import style from "./custom.module.css";
 import { Button, Alert, Table } from "react-bootstrap";
 import Cols from "./Col";
+import Counter from "./Counter";
 
-function App() {
-  //let data = "sunny sood";
-  function getName(data){
-    alert(data);
+class App extends React.Component {
+  constructor(){
+    super();
+    this.state={
+      count:1
+    }
   }
-  return (
-    <div className="App">
-      <h1>Lifting State Up</h1>
-      <User getData={getName} />
-    </div>
-  );
+  render(){
+    return (
+      <div className="App">
+        <Counter count={this.state.count} />
+       <button onClick={()=>{this.setState({count:this.state.count+1})}}>Update count</button>
+      </div>
+    );
+  }
+  
 }
 
 export default App;
