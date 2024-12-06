@@ -1,9 +1,9 @@
 function User(props) {
+  const name="sunny sood";
   return (
     <div>
-      <span>{props.data.name}</span>
-      <span>{props.data.email}</span>
-      <span>{props.data.phone}</span>
+      <h2>User name: </h2>
+      <button onClick={()=>props.getData(name)}>click Me</button>
     </div>
   );
 }

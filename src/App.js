@@ -9,23 +9,14 @@ import { Button, Alert, Table } from "react-bootstrap";
 import Cols from "./Col";
 
 function App() {
+  //let data = "sunny sood";
+  function getName(data){
+    alert(data);
+  }
   return (
-    <div>
-      <h1>React Component</h1>
-      <table>
-        <tbody>
-          <Cols />
-          <Cols />
-          <Cols />
-          <Cols />
-          <Cols />
-          <Cols />
-          <Cols />
-          <Cols />
-          <Cols />
-          <Cols />
-        </tbody>
-      </table>
+    <div className="App">
+      <h1>Lifting State Up</h1>
+      <User getData={getName} />
     </div>
   );
 }
