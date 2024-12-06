@@ -10,6 +10,9 @@ function NavBar() {
         <li>
           <Link to="/">Home</Link>
         </li>
+        <li>
+          <Link to="/contact">Contact</Link>
+        </li>
 
         <li>
           <li>
