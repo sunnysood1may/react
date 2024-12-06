@@ -1,38 +1,24 @@
 import logo from "./logo.svg";
 import "./App.css";
-import React, { useEffect, useState, Fragment, 
-  useMemo, createRef } from "react";
-import User from "./User";
-import Student from "./Student";
+import React, {  useRef } from "react";
 import "./style.css";
-import style from "./custom.module.css";
-import { Button, Alert, Table } from "react-bootstrap";
-import Cols from "./Col";
-import Counter from "./Counter";
 
-class App extends React.Component {
-  constructor(){
-    super();
-    this.inputRef=createRef();
-  }
-  componentDidMount(){
-    //console.log(this.inputRef.current.value="1000");
-  }
-  getVal(){
-    console.log(this.inputRef.current.value);
-    this.inputRef.current.style.color = "red";
-    this.inputRef.current.style.backgroundColor = "yellow";
-  }
-  render (){
+function App() {
+    let inputRef = useRef(null);
+    function handleInput(){
+      console.log("function call");
+      inputRef.current.value=1000;
+      inputRef.current.style.color = "yellow";
+      inputRef.current.focus();
+      inputRef.current.style.display = "none";
+    }
     return (
       <div className="App">
-        <h1>Ref in React </h1>
-        <input type="text" ref={this.inputRef} /><br />
-        <Button onClick={()=>this.getVal()}>Check Ref</Button>
+        <h1>useRef in React </h1>
+        <input type="text" ref={inputRef} />
+        <button onClick={handleInput}>Handle Input</button>
       </div>
     );
-  }
-  
 }
 
 export default App;
