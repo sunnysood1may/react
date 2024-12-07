@@ -13,6 +13,12 @@ function NavBar() {
         <li>
           <Link to="/contact">Contact</Link>
         </li>
+        <li>
+          <Link to="/user/sunny">sunny</Link>
+        </li>
+        <li>
+          <Link to="/user/shilpa">shilpa</Link>
+        </li>
 
         <li>
           <li>

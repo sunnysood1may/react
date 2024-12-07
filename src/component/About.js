@@ -8,7 +8,16 @@ function About() {
       <p>We are learning about Router</p>
       <Link to="/">Go to Home</Link>
 
-      <li><a href='/'>Home</a></li>
+      <li>
+        <Link to="/user/sunny">sunny</Link>
+      </li>
+      <li>
+        <Link to="/user/shilpa">shilpa</Link>
+      </li>
+
+      <li>
+        <a href="/">Home</a>
+      </li>
     </>
   );
 }
