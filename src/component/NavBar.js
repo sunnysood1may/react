@@ -5,13 +5,15 @@ function NavBar() {
     <div>
       <ul className="navbar">
       <li>
-          <NavLink className="nav-bar-link" style={{color:'#fff',backgroundColor:'grey'}} to="/">Home</NavLink>
+          <NavLink 
+          style={({isActive})=>{return{backgroundColor: isActive? 'green': 'yellow'}}}     
+          className="nav-bar-link" to="/">Home</NavLink>
         </li>
         <li>
-          <Link className="nav-bar-link" to="/about">About</Link>
+          <NavLink className="nav-bar-link" to="/about">About</NavLink>
         </li>    
         <li>
-          <Link className="nav-bar-link" to="/contact">Contact</Link>
+          <NavLink className="nav-bar-link" to="/contact">Contact</NavLink>
         </li>
         <li>
           <Link className="nav-bar-link" to="/user/sunny">sunny</Link>
@@ -20,16 +22,7 @@ function NavBar() {
           <Link className="nav-bar-link" to="/user/shilpa">shilpa</Link>
         </li>
 
-        <li>
-          <li>
-            <a href="/">Home</a>
-          </li>
-        </li>
-        <li>
-          <li>
-            <a href="/about">About</a>
-          </li>
-        </li>
+        
       </ul>
     </div>
   );

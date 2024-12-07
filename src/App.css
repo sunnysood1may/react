@@ -8,7 +8,12 @@
 }
 .navbar {
   text-align: right;
+  width: 300px;
+  .active {
+    color: skyblue !important;
+  }
 }
+
 .nav-bar-link {
   color: red;
   text-decoration: none;
