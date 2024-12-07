@@ -9,7 +9,7 @@ function About() {
       <Link to="/">Go to Home</Link>
 
       <li>
-        <Link to="/user/sunny">sunny</Link>
+        <Link to="/user/sunny" state={{name:'sunny sood',age:39}}>sunny</Link>
       </li>
       <li>
         <Link to="/user/shilpa">shilpa</Link>
