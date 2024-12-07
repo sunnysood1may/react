@@ -1,30 +1,40 @@
-import logo from "./logo.svg";
 import "./App.css";
-import React, { useEffect, useState, Fragment } from "react";
-import User from "./User";
-import Student from "./Student";
-import "./style.css";
-import style from "./custom.module.css";
-import { Button, Alert, Table } from "react-bootstrap";
-import Cols from "./Col";
-import Counter from "./Counter";
+import React from "react";
+import { BrowserRouter, Link, Navigate, Route, Routes } from "react-router-dom";
+import Home from "./component/Home";
+import About from "./component/About";
+import NavBar from "./component/NavBar";
+import Page404 from "./component/Page404";
+import User from "./component/User";
+import Filter from "./component/filter";
+import Contact from "./component/Contact";
+import Company from "./component/Company";
+import Other from "./component/Other";
+import Channel from "./component/Channel";
+function App() {
+  return (
+    <div className="App">
+      <BrowserRouter>
+        <NavBar />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/user/:name" element={<User />} />
+          <Route path="/filter" element={<Filter />} />
+          
+          <Route path="/contact" element={<Contact />}>
+            <Route path="company" element={<Company />} />
+            <Route path="channel" element={<Channel />} />
+            <Route path="other" element={<Other />} />
+          </Route>
 
-class App extends React.Component {
-  constructor(){
-    super();
-    this.state={
-      count:1
-    }
-  }
-  render(){
-    return (
-      <div className="App">
-        <Counter count={this.state.count} />
-       <button onClick={()=>{this.setState({count:this.state.count+1})}}>Update count</button>
-      </div>
-    );
-  }
-  
+
+          {/*<Route path="/*" element={<Page404 />} />*/}
+          <Route path="/*" element={<Navigate to="/" />} />
+        </Routes>
+      </BrowserRouter>
+    </div>
+  );
 }
 
 export default App;

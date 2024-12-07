@@ -1,11 +1,10 @@
-function User(props) {
-  const name="sunny sood";
+import React,{forwardRef} from "react";
+function User(props,ref) {
   return (
     <div>
-      <h2>User name: </h2>
-      <button onClick={()=>props.getData(name)}>click Me</button>
+      <input ref={ref} type="text" />
     </div>
-  );
+  )
 }
 
-export default User;
+export default forwardRef(User);
