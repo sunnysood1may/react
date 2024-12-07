@@ -4,13 +4,28 @@ import { Link, NavLink } from "react-router-dom";
 function Listing() {
   const [data, setData] = useState([]);
   useEffect(() => {
-    fetch("https://jsonplaceholder.typicode.com/users").then((result) => {
-      result.json().then((resp) => {
-        console.log("result", resp);
-        setData(resp);
-      });
-    });
+    getUsers();  
   }, []);
+
+  function getUsers(){
+    fetch("https://jsonplaceholder.typicode.com/users").then((result) => {
+        result.json().then((resp) => {
+          console.log("result", resp);
+          setData(resp);
+        });
+    });
+  }
+
+  function deleteUser(id) {
+    fetch(`https://jsonplaceholder.typicode.com/todo/${id}`, {
+      method: 'DELETE'
+    }).then((result) => {
+      result.json().then((resp) => {
+        console.warn(resp);
+        getUsers();
+      })
+    })
+  }
 
   return (
     <div>
@@ -23,6 +38,7 @@ function Listing() {
             <td>Name</td>
             <td>Email</td>
             <td>Phone</td>
+            <td>Delete</td>
           </tr>
           {data.map((item, i) => (
             <tr key={i}>
@@ -30,6 +46,7 @@ function Listing() {
               <td>{item.name}</td>
               <td>{item.email}</td>
               <td>{item.phone}</td>
+              <td><button onClick={() => deleteUser(item.id)}>delete</button></td>
             </tr>
           ))}
         </tbody>
