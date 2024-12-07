@@ -11,14 +11,24 @@ import Contact from "./component/Contact";
 import Company from "./component/Company";
 import Other from "./component/Other";
 import Channel from "./component/Channel";
+import Login from "./component/Login";
+import Protected from "./component/Protected";
 function App() {
   return (
     <div className="App">
       <BrowserRouter>
         <NavBar />
         <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/about" element={<About />} />
+          <Route path="/login" element={<Login />} />
+
+          { /*<Route path="/" element={<Home />} />*/ }
+          <Route path="/" element={<Protected Component={Home} />} />
+          
+          { /*<Route path="/about" element={<c />} />*/ }
+          <Route path="/about" element={<Protected Component={About} />} />
+
+
+
           <Route path="/user/:name" element={<User />} />
           <Route path="/filter" element={<Filter />} />
           
