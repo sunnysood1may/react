@@ -1,50 +1,36 @@
-import "./App.css";
-import React from "react";
-import { BrowserRouter, Link, Navigate, Route, Routes } from "react-router-dom";
-import Home from "./component/Home";
-import About from "./component/About";
-import NavBar from "./component/NavBar";
-import Page404 from "./component/Page404";
-import User from "./component/User";
-import Filter from "./component/filter";
-import Contact from "./component/Contact";
-import Company from "./component/Company";
-import Other from "./component/Other";
-import Channel from "./component/Channel";
-import Login from "./component/Login";
-import Protected from "./component/Protected";
+import './App.css';
+import React from 'react'
+import { BrowserRouter as Router, Link, Route, Routes } from 'react-router-dom'
 function App() {
   return (
     <div className="App">
-      <BrowserRouter>
-        <NavBar />
+      <Router>
+        <Link to="/home" >Home</Link>
+        <br></br>
+        <Link to="/about" >About</Link>
         <Routes>
-          <Route path="/login" element={<Login />} />
-
-          { /*<Route path="/" element={<Home />} />*/ }
-          <Route path="/" element={<Protected Component={Home} />} />
-          
-          { /*<Route path="/about" element={<c />} />*/ }
-          <Route path="/about" element={<Protected Component={About} />} />
-
-
-
-          <Route path="/user/:name" element={<User />} />
-          <Route path="/filter" element={<Filter />} />
-          
-          <Route path="/contact" element={<Contact />}>
-            <Route path="company" element={<Company />} />
-            <Route path="channel" element={<Channel />} />
-            <Route path="other" element={<Other />} />
-          </Route>
-
-
-          {/*<Route path="/*" element={<Page404 />} />*/}
-          <Route path="/*" element={<Navigate to="/" />} />
+          <Route exact path="/home" element={<Home/>} />
+          <Route exact path="/about" element={<About/>} />
         </Routes>
-      </BrowserRouter>
+      </Router>
     </div>
   );
 }
 
+function Home() {
+  return (
+    <div>
+      <h1>Home Page</h1>
+      <p>This is my Home Page</p>
+    </div>
+  )
+}
+function About() {
+  return (
+    <div>
+      <h1>About Page</h1>
+      <p>This is my About Page</p>
+    </div>
+  )
+}
 export default App;
