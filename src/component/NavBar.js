@@ -16,6 +16,9 @@ function NavBar() {
           <NavLink className="nav-bar-link" to="/contact">Contact</NavLink>
         </li>
         <li>
+          <NavLink className="nav-bar-link" to="/filter?age=39&city=gurugram">Filter</NavLink>
+        </li>
+        <li>
           <Link className="nav-bar-link" to="/user/sunny">sunny</Link>
         </li>
         <li>

@@ -8,7 +8,7 @@
 }
 .navbar {
   text-align: right;
-  width: 300px;
+  width: 500px;
   .active {
     color: skyblue !important;
   }
