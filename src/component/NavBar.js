@@ -25,6 +25,10 @@ function NavBar() {
           <Link className="nav-bar-link" to="/user/shilpa">shilpa</Link>
         </li>
 
+        <li>
+          <NavLink className="nav-bar-link" to="/login">Login</NavLink>
+        </li>
+
         
       </ul>
     </div>
