@@ -1,29 +1,38 @@
 import "./App.css";
-import React from "react";
-import { Link, Route, Routes  } from "react-router-dom";
-import User from "./User";
+import React, { useEffect, useState } from "react";
 
 function App() {
-  let users=[
-    {name:'anil',id:1},
-    {name:'peter',id:2},
-    {name:'bruce',id:3},
-    {name:'tony',id:4},
-  ]
+  const [data, setData] = useState([]);
+  useEffect(() => {
+    fetch("https://jsonplaceholder.typicode.com/users").then((result) => {
+      result.json().then((resp) => {
+        console.log("result", resp);
+        setData(resp);
+      });
+    });
+  }, []);
+
   return (
     <div className="App">
-      <h1>React Dynamic Routing</h1>
-      {
-        users.map((item)=>
-          <div>
-            <Link to={"/user/"+item.id+"/"+item.name}>{item.name}</Link>
-          </div>
-        )
-      }
-      <Routes>
-        <Route path="/user/:id/:name" element={<User />}></Route>
-      </Routes>
-      
+      <h1>Get API Call</h1>
+      <table border="1">
+        <tbody>
+          <tr>
+            <td>ID</td>
+            <td>Name</td>
+            <td>Email</td>
+            <td>Phone</td>
+          </tr>
+          {data.map((item, i) => (
+            <tr key={i}>
+              <td>{item.id}</td>
+              <td>{item.name}</td>
+              <td>{item.email}</td>
+              <td>{item.phone}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
     </div>
   );
 }
