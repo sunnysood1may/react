@@ -1,38 +1,55 @@
 import "./App.css";
-import React, { useEffect, useState } from "react";
-
+import React from "react";
+import { Link, Navigate, Route, Routes } from "react-router-dom";
+import Home from "./component/Home";
+import About from "./component/About";
+import NavBar from "./component/NavBar";
+import Page404 from "./component/Page404";
+import User from "./component/User";
+import Filter from "./component/filter";
+import Contact from "./component/Contact";
+import Company from "./component/Company";
+import Other from "./component/Other";
+import Channel from "./component/Channel";
+import Login from "./component/Login";
+import Protected from "./component/Protected";
+import Listing from "./crud/listing";
+import Add from "./crud/add";
 function App() {
-  const [data, setData] = useState([]);
-  useEffect(() => {
-    fetch("https://jsonplaceholder.typicode.com/users").then((result) => {
-      result.json().then((resp) => {
-        console.log("result", resp);
-        setData(resp);
-      });
-    });
-  }, []);
-
   return (
     <div className="App">
-      <h1>Get API Call</h1>
-      <table border="1">
-        <tbody>
-          <tr>
-            <td>ID</td>
-            <td>Name</td>
-            <td>Email</td>
-            <td>Phone</td>
-          </tr>
-          {data.map((item, i) => (
-            <tr key={i}>
-              <td>{item.id}</td>
-              <td>{item.name}</td>
-              <td>{item.email}</td>
-              <td>{item.phone}</td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
+      
+        <NavBar />
+        <Routes>
+          <Route path="/login" element={<Login />} />
+
+          { /*<Route path="/" element={<Home />} />*/ }
+          <Route path="/" element={<Protected Component={Home} />} />
+          
+          { /*<Route path="/about" element={<c />} />*/ }
+          <Route path="/about" element={<Protected Component={About} />} />
+
+
+
+          <Route path="/user/:name" element={<User />} />
+          <Route path="/filter" element={<Filter />} />
+          
+          <Route path="/contact" element={<Contact />}>
+            <Route path="company" element={<Company />} />
+            <Route path="channel" element={<Channel />} />
+            <Route path="other" element={<Other />} />
+          </Route>
+
+
+          {/*<Route path="/*" element={<Page404 />} />*/}
+          <Route path="/*" element={<Navigate to="/" />} />
+
+
+          <Route path="/users/listing" element={<Listing />} />
+          <Route path="/users/add" element={<Add />} />
+
+        </Routes>
+      
     </div>
   );
 }
