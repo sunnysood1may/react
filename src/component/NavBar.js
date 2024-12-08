@@ -36,6 +36,9 @@ function NavBar() {
         <li>
           <NavLink className="nav-bar-link" to="/previousState">Previous state</NavLink>
         </li>
+        <li>
+          <NavLink className="nav-bar-link" to="/previousProps">Previous Props</NavLink>
+        </li>
 
         
       </ul>
