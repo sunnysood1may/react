@@ -19,21 +19,18 @@ import PreviousState from "./crud/previousState";
 import PreviousProps from "./crud/previousProps";
 import StateObject from "./crud/stateObject";
 import ContextApi from "./contextAPI/ContextApi";
+import Props from "./component/Props";
 function App() {
   return (
     <div className="App">
-      
         <NavBar />
         <Routes>
           <Route path="/login" element={<Login />} />
-
           { /*<Route path="/" element={<Home />} />*/ }
           <Route path="/" element={<Protected Component={Home} />} />
           
           { /*<Route path="/about" element={<c />} />*/ }
           <Route path="/about" element={<Protected Component={About} />} />
-
-
 
           <Route path="/user/:name" element={<User />} />
           <Route path="/filter" element={<Filter />} />
@@ -44,13 +41,10 @@ function App() {
             <Route path="other" element={<Other />} />
           </Route>
 
-
           {/*<Route path="/*" element={<Page404 />} />*/}
           <Route path="/*" element={<Navigate to="/" />} />
 
-
-          <Route path="/users/listing" element={<Listing />} />
-          
+          <Route path="/users/listing" element={<Listing />} />     
           <Route path="/users/add" element={<Add />} />
 
           <Route path="/previousState" element={<PreviousState />} />
@@ -58,6 +52,7 @@ function App() {
           <Route path="/stateObject" element={<StateObject />} />
           <Route path="/contextApi" element={<ContextApi />} />
 
+          <Route path="/props" element={<Props />} />
         </Routes>
       
     </div>

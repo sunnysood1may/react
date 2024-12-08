@@ -3,8 +3,8 @@ import { Link, NavLink } from "react-router-dom";
 function NavBar() {
   return (
     <div>
-      <ul className="navbar">
-      <li>
+      <ul className="navbar nvw1">
+        <li>
           <NavLink 
           style={({isActive})=>{return{backgroundColor: isActive? 'green': 'yellow'}}}     
           className="nav-bar-link" to="/">Home</NavLink>
@@ -30,6 +30,8 @@ function NavBar() {
         <li>
           <NavLink className="nav-bar-link" to="/users/listing">Users</NavLink>
         </li>
+      </ul>
+      <ul className="navbar nvw2">
         <li>
           <NavLink className="nav-bar-link" to="/previousState">Previous state</NavLink>
         </li>
@@ -42,7 +44,10 @@ function NavBar() {
         <li>
           <NavLink className="nav-bar-link" to="/contextApi">ContextApi</NavLink>
         </li>
-      
+        <li>
+          <NavLink className="nav-bar-link" to="/props">Props</NavLink>
+        </li> 
+          
       </ul>
     </div>
   );
