@@ -8,10 +8,15 @@
 }
 .navbar {
   text-align: right;
-  width: 1050px;
   .active {
     color: skyblue !important;
   }
+}
+.nvw1 {
+  width: 600px;
+}
+.nvw2 {
+  width: 600px;
 }
 
 .nav-bar-link {
