@@ -17,6 +17,7 @@ import Listing from "./crud/listing";
 import Add from "./crud/add";
 import PreviousState from "./crud/previousState";
 import PreviousProps from "./crud/previousProps";
+import StateObject from "./crud/stateObject";
 function App() {
   return (
     <div className="App">
@@ -53,6 +54,7 @@ function App() {
 
           <Route path="/previousState" element={<PreviousState />} />
           <Route path="/previousProps" element={<PreviousProps />} />
+          <Route path="/stateObject" element={<StateObject />} />
 
         </Routes>
       
