@@ -24,15 +24,12 @@ function NavBar() {
         <li>
           <Link className="nav-bar-link" to="/user/shilpa">shilpa</Link>
         </li>
-
         <li>
           <NavLink className="nav-bar-link" to="/login">Login</NavLink>
         </li>
-
         <li>
           <NavLink className="nav-bar-link" to="/users/listing">Users</NavLink>
         </li>
-
         <li>
           <NavLink className="nav-bar-link" to="/previousState">Previous state</NavLink>
         </li>
@@ -42,8 +39,10 @@ function NavBar() {
         <li>
           <NavLink className="nav-bar-link" to="/stateObject">State Object</NavLink>
         </li>
-
-        
+        <li>
+          <NavLink className="nav-bar-link" to="/contextApi">ContextApi</NavLink>
+        </li>
+      
       </ul>
     </div>
   );

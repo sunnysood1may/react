@@ -18,6 +18,7 @@ import Add from "./crud/add";
 import PreviousState from "./crud/previousState";
 import PreviousProps from "./crud/previousProps";
 import StateObject from "./crud/stateObject";
+import ContextApi from "./contextAPI/ContextApi";
 function App() {
   return (
     <div className="App">
@@ -55,6 +56,7 @@ function App() {
           <Route path="/previousState" element={<PreviousState />} />
           <Route path="/previousProps" element={<PreviousProps />} />
           <Route path="/stateObject" element={<StateObject />} />
+          <Route path="/contextApi" element={<ContextApi />} />
 
         </Routes>
       
