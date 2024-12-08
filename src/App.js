@@ -15,6 +15,7 @@ import Login from "./component/Login";
 import Protected from "./component/Protected";
 import Listing from "./crud/listing";
 import Add from "./crud/add";
+import PreviousState from "./crud/previousState";
 function App() {
   return (
     <div className="App">
@@ -46,7 +47,9 @@ function App() {
 
 
           <Route path="/users/listing" element={<Listing />} />
+          
           <Route path="/users/add" element={<Add />} />
+          <Route path="/previousState" element={<PreviousState />} />
 
         </Routes>
       

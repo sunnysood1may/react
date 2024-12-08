@@ -33,6 +33,10 @@ function NavBar() {
           <NavLink className="nav-bar-link" to="/users/listing">Users</NavLink>
         </li>
 
+        <li>
+          <NavLink className="nav-bar-link" to="/previousState">Previous state</NavLink>
+        </li>
+
         
       </ul>
     </div>
