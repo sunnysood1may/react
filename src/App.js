@@ -1,6 +1,6 @@
 import "./App.css";
 import React from "react";
-import { BrowserRouter, Link, Navigate, Route, Routes } from "react-router-dom";
+import { Link, Navigate, Route, Routes } from "react-router-dom";
 import Home from "./component/Home";
 import About from "./component/About";
 import NavBar from "./component/NavBar";
@@ -13,10 +13,16 @@ import Other from "./component/Other";
 import Channel from "./component/Channel";
 import Login from "./component/Login";
 import Protected from "./component/Protected";
+import Listing from "./crud/listing";
+import Add from "./crud/add";
+import PreviousState from "./crud/previousState";
+import PreviousProps from "./crud/previousProps";
+import StateObject from "./crud/stateObject";
+import ContextApi from "./contextAPI/ContextApi";
 function App() {
   return (
     <div className="App">
-      <BrowserRouter>
+      
         <NavBar />
         <Routes>
           <Route path="/login" element={<Login />} />
@@ -41,8 +47,19 @@ function App() {
 
           {/*<Route path="/*" element={<Page404 />} />*/}
           <Route path="/*" element={<Navigate to="/" />} />
+
+
+          <Route path="/users/listing" element={<Listing />} />
+          
+          <Route path="/users/add" element={<Add />} />
+
+          <Route path="/previousState" element={<PreviousState />} />
+          <Route path="/previousProps" element={<PreviousProps />} />
+          <Route path="/stateObject" element={<StateObject />} />
+          <Route path="/contextApi" element={<ContextApi />} />
+
         </Routes>
-      </BrowserRouter>
+      
     </div>
   );
 }
